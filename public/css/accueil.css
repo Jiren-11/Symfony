@@ -94,6 +94,9 @@ font-family: sans-serif;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
     gap: 10px;
+    display: flex;
+    justify-content: center;
+
 }
 
 .cart {
