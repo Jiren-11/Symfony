@@ -1,0 +1,10 @@
+<link rel="stylesheet" href="{{asset("css/style.css")}}">
+<br>
+{{ form_start(form) }}
+<br>
+{{ form_widget(form) }}
+
+<br>
+<button class="btn">{{ button_label|default('Save') }}</button>
+<br>
+{{ form_end(form) }}

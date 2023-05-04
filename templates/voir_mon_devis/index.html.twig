@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello VoirMonDevisController!{% endblock %}
+
+{% block content %}
+<style>
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+
+<div class="example-wrapper">
+<link rel="stylesheet" href="{{asset("css/style.css")}}">
+
+	<div class="card-wrapper">
+		<div class="cardo">
+
+    <h1>Voir mes Devis </h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Hauteur</th>
+                <th>Longueur</th>
+                <th>utilisateur</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for devi in devis %}
+            <tr>
+                <td>{{ devi.id }}</td>
+                <td>{{ devi.date ? devi.date|date('Y-m-d') : '' }}</td>
+                <td>{{ devi.hauteur }}</td>
+                <td>{{ devi.longueur }}</td>
+                <td>{{ app.user.userIdentifier }}</td>
+            {% endfor %}
+        </tbody>
+	     
+    </table>
+           
+
+       <h2>
+				Retour à l'Accueil :<a href="{{ path('app_accueil') }}">
+                <div class="icon">
+					<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+					<lord-icon src="https://cdn.lordicon.com/qhaguvvs.json" trigger="hover" style="width:50px;height:50px"></lord-icon>
+				</div>
+                </a>
+			</h2>
+
+    </div>
+    </div>
+
+{% endblock %}

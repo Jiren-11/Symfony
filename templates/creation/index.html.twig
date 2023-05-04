@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CreationController!{% endblock %}
+
+{% block body %}
+{% block content %}
+<style>
+<link rel="stylesheet" href="{{asset("css/style.css")}}">
+.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{# ajouter un background sur cette page en synfony  #}
+
+
+<div class="card-wrapper">
+<div class="card">
+<h1>Création d'une nouvelle haie  </h1>
+
+{# formulaire  #}
+<form action="" method="post">
+
+<label for="name">Code haie</label>
+<p>Indiquez le code de votre haie, elle permettra par la suite de clairement l'identifier<p>
+<input type="text" id="code" name="code" required>
+
+<br>
+
+
+<label for="name">Nom haie</label>
+<p>Indiquez la nom la haie<p>
+<input type="text" id="nom" name="nom" required>
+
+<br>
+
+<label for="name">Tarif haie</label>
+<p>Quel est le prise votre nouvelle haie ?<p>
+<input type="text" id="tarif" name="tarif" required>
+<br>
+
+<label for="name">De quelle catégorie appartient votre haie ?</label>
+<p>Choisissez la catégorie de votre haie<p>
+<select name="categorie" id="haie-select">
+    {% for item in categorie %}
+        <option value="{{item.getId()}}">{{item.getLibelle()}}
+        </option>
+    {% endfor %}  
+    
+    </select>
+
+<br>
+<br>
+<br>
+<label for="name">Ajouter :</label>
+<br>
+<button type="submit" href= "{{ 'devis' }} "><script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+<lord-icon
+src="https://cdn.lordicon.com/ejxwvtlg.json"
+trigger="hover"
+style="width:70px;height:70px">
+</lord-icon></button>
+
+</form>
+</div>
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Haie index
+{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{{asset("css/style.css")}}">
+
+	<div class="card-wrapper">
+		<div class="cardo">
+			<h1>Gestion des Haies</h1>
+
+			<table class="table">
+  				<thead class="thead-dark">
+					<tr>
+						<th>Code</th>
+						<th>Nom</th>
+						<th>Prix</th>
+						{% if is_granted('ROLE_ADMIN') %}
+							<th>actions</th>
+						{% endif %}
+						{% if is_granted('ROLE_USER') %}
+							<th>Voir</th>
+						{% endif %}
+					</tr>
+				</thead>
+				<tbody>
+					{% for haie in haies %}
+						<tr>
+							<td>{{ haie.code }}</td>
+							<td>{{ haie.nom }}</td>
+							<td>{{ haie.prix }}</td>
+
+							
+						{% if is_granted('ROLE_USER') %}	
+							<td>
+								<a href="{{ path('app_haie_show', {'code': haie.code}) }}">
+									<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+									<lord-icon src="https://cdn.lordicon.com/osbjlbsb.json" trigger="hover" style="width:50px;height:50px"></lord-icon>
+								</a>
+							</td>
+						{% endif %}
+
+						{% if is_granted('ROLE_ADMIN') %}
+							<td>
+								<a href="{{ path('app_haie_edit', {'code': haie.code}) }}">
+									<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+									<lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover" style="width:50px;height:50px"></lord-icon>
+								</a>
+							</td>
+							{% endif %}
+							
+						</tr>
+					{% else %}
+						<tr>
+							<td colspan="4">no records found</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>
+			<br>
+			<br>
+			<a href="{{ path('app_haie_new') }}" class="btn">Create new</a>
+
+			<h2>
+				Retour à l'Accueil :<a href="{{ path('app_accueil') }}">
+                <div class="icon">
+					<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+					<lord-icon src="https://cdn.lordicon.com/qhaguvvs.json" trigger="hover" style="width:50px;height:50px"></lord-icon>
+				</div>
+                </a>
+			</h2>
+
+
+		</div>
+	</div>
+{% endblock %}

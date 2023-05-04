@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ChoixController!{% endblock %}
+
+{% block body %}
+<style>
+  <link rel="stylesheet" href="{{asset("css/style.css")}}">
+  .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+  .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+{% block content %}
+
+<div class="card-wrapper">
+<div class="card">
+  <h1>Choix</h1>
+  <div class="card-body">
+    <h2>Choisissez votre type de compte</h2>
+    <p>Vous êtes un particulier ou une entreprise ?</p>
+
+
+{# formulaire #}
+
+    <div>
+    <form action="{{ path('app_mesure') }}" method="post">
+
+{# Radio #}
+      <div class="radio-container">
+            <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+<lord-icon
+  src="https://cdn.lordicon.com/gkstbnbz.json"
+  trigger="hover"
+  style="width:30px;height:30px">
+</lord-icon>
+    <input type="radio" id="dewey" name="choix" value="e">
+    <label for="dewey">entreprise</label>
+
+
+    <br>
+{# Radio #}
+<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+<lord-icon
+  src="https://cdn.lordicon.com/ajkxzzfb.json"
+  trigger="hover"
+  style="width:30px;height:30px">
+</lord-icon>
+    <input type="radio" id="dewey" name="choix" value="p">
+    <label for="dewey">particulier</label>
+      </div>
+    <br>
+{# Boutton #}
+    <button type="submit" >Suite</button>
+    
+    <br>
+
+  </div>
+  </div>
+</div>
+
+{% endblock %}
+{% endblock %}

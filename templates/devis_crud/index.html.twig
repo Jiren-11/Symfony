@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Devis index{% endblock %}
+
+{% block content %}
+	<link rel="stylesheet" href="{{asset("css/style.css")}}">
+
+	<div class="card-wrapper">
+		<div class="cardo">
+
+    <h1>Gestion des Devis </h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Hauteur</th>
+                <th>Longueur</th>
+                <th>utilisateur</th>
+                <th>actions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for devi in devis %}
+            <tr>
+                <td>{{ devi.id }}</td>
+                <td>{{ devi.date ? devi.date|date('Y-m-d') : '' }}</td>
+                <td>{{ devi.hauteur }}</td>
+                <td>{{ devi.longueur }}</td>
+                <td>{{ app.user.userIdentifier }}</td>
+                <td>
+                    <a href="{{ path('app_devis_crud_show', {'id': devi.id}) }}" class="boutons">
+                    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+					<lord-icon src="https://cdn.lordicon.com/osbjlbsb.json" trigger="hover" style="width:50px;height:50px"></lord-icon></a>
+                    <a href="{{ path('app_devis_crud_edit', {'id': devi.id}) }}" class="boutons">									
+                    <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+					<lord-icon src="https://cdn.lordicon.com/alzqexpi.json" trigger="hover" style="width:50px;height:50px"></lord-icon></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+
+        
+        </tbody>
+	     
+    </table>
+
+       <h2>
+				Retour à l'Accueil :<a href="{{ path('app_accueil') }}">
+                <div class="icon">
+					<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+					<lord-icon src="https://cdn.lordicon.com/qhaguvvs.json" trigger="hover" style="width:50px;height:50px"></lord-icon>
+				</div>
+                </a>
+			</h2>
+
+    </div>
+    </div>
+
+    <a href="{{ path('app_devis_crud_new') }}">Create new</a>
+{% endblock %}

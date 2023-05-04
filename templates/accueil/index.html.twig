@@ -1,0 +1,201 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AccueilController!
+{% endblock %}
+
+
+{% block body %}
+	<style>
+		.example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+		.example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+	</style>
+	{% block content %}
+
+<body>
+   <div class="header">
+        <div class="section_1">
+
+        </div>
+        <div class="section_2">
+
+        </div>
+        <div class="section_3">
+            <div class="section_3_partion_1">
+                <div class="partition_1_head">
+                    <div class="logo_container">
+                        <div class="logo">
+
+                        </div>
+                    </div>
+                </div>
+                <h1 class="welcome_message">Gardening</h1>
+				<div class="topcard">
+				<h2>Notre équipe est composée de professionnels qualifiés et expérimentés</h2>
+				<p>Notre équipe est composée de professionnels qualifiés et expérimentés</h2>
+						<p>Nous sommes à votre écoute pour vous conseiller et vous accompagner dans vos projets de haie.<br>
+						Nous vous proposons des prestations de qualité à des prix compétitifs.<br>
+						Nous intervenons sur tout le département de la Gironde (33).</p>
+
+						
+			{% if app.user != null %}
+				<h4>Faites votre devis GRA-TUIT !</h4>
+				<a href="{{ path('app_mesure') }}" class="btn">Faire un devis en ligne</a>
+			{% endif %}
+
+				{% if app.user == null %}
+				<h4>Vous êtes déjà client</h4>
+				<a href="{{ path('app_login') }}" class="btn">Se connecter</a>
+
+			{% endif %}
+
+
+		
+			{% if is_granted('ROLE_USER') %}
+				<h4>Voici nos haies</h4>
+				<a href="{{ path('app_haie_index') }}"class="btn">Voir le catalogue</a>
+			{% endif %} 
+
+            </div>
+			</div>
+
+            <div class="section_3_partion_2">
+                <div class="carts_container">
+                    <div class="cart cart_1">
+                        <div class="cart_image cart_image_1">
+							<h3 class="tilte">Abélia</h3>
+							 <p class="description">Les abélias, des variétés attrayantes et parfumées. 
+	  							Esthétique, l'abélia est un arbuste de taille moyenne au feuillage persistant,
+	  							élégant et lumineux. Il peut atteindre 3 m de haut et sa floraison se déroule principalement en été.
+							</p>  
+                        </div>
+                    </div>
+
+                    <div class="cart cart_1">
+                        <div class="cart_image cart_image_2">
+							<h3 class="tilte">Thuya</h3>
+							 <p class="description">Le thuya appartient à la famille des Cupressacées.
+								D'origine américaine ou asiatique selon les espèces, <br>
+								il est classé parmi les conifères et on le reconnaît aisément à son feuillage persistant vert ou doré,
+					 			formé d'écailles imbriquées les unes dans les autres.
+							</p>
+                        </div>
+                    </div>
+
+                    <div class="cart cart_1">
+                        <div class="cart_image cart_image_3">
+							<h3 class="tilte">Troène</h3>
+
+							<p class="description"> Le troène est un genre de plantes dicotylédones de la famille des Oleaceae, 
+	  							originaire d'Eurasie et d'Afrique du Nord, qui comprend une cinquantaine d'espèces. 
+	  							Ce sont des arbustes ou de petits arbres au feuillage caduc, semi-persistant ou persistant.
+							</p>
+                    	</div>
+					</div>
+					
+					<div class="cart cart_1">
+                        <div class="cart_image cart_image_4">
+							<h3 class="tilte">Laurier</h3>
+							<p class="description">Le Laurier est une espèce d'arbustes à feuillage persistant de la famille des Lauracées.
+	   							Il est originaire du bassin méditerranéen. 
+	  							Il est parfois appelé Laurier d'Apollon ou Laurier noble.
+							</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+	{# <section class="sec1">
+			<div class="card-wrapper">
+				<div class="topcard">
+					<div class="top">
+						<h1>🟦⬜🟥 Bienvenue chez Gardening le numéro 1 en France 🟦⬜🟥</h1>
+						<img src="{{ asset('img/1.png') }}" class="med">
+					</div>
+					<div class="bottom">
+						<img src="{{ asset('img/tst.png') }}" class="banière">
+					</div>
+					<div class="down">
+						<h2>Notre équipe est composée de professionnels qualifiés et expérimentés</h2>
+						<p>Notre équipe est composée de professionnels qualifiés et expérimentés. 
+						Nous sommes à votre écoute pour vous conseiller et vous accompagner dans vos projets de haie.
+						Nous vous proposons des prestations de qualité à des prix compétitifs.
+						Nous intervenons sur tout le département de la Gironde (33).</p>
+					</div>
+				</div>
+			</div>
+		</section>
+<div class="container"> 
+<div class="card-wrapper">
+  <div class="card">
+    <img src="{{asset('img/abelia.jpg')}}" alt="Image 1">
+    <div class="card-description">
+      <h2>Abélia</h2>
+      <p>Les abélias, des variétés attrayantes et parfumées. 
+	  Esthétique, l'abélia est un arbuste de taille moyenne au feuillage persistant,
+	  élégant et lumineux. Il peut atteindre 3 m de haut et sa floraison se déroule principalement en été.</p>  
+	</div>
+	<a href="{{ path('app_mesure') }}" class="btn">Faire un devis en ligne</a>
+  </div>
+
+  <div class="card">
+    <img src="{{asset('img/laurier.jpg')}}" alt="Image 2">
+    <div class="card-description">
+      <h2>Laurier</h2>
+      <p>Le Laurier est une espèce d'arbustes à feuillage persistant de la famille des Lauracées.
+	   Il est originaire du bassin méditerranéen. 
+	   Il est parfois appelé Laurier d'Apollon ou Laurier noble.</p>
+	   <a href="{{ path('app_mesure') }}" class="btn">Faire un devis en ligne</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="{{asset('img/thuya.jpg')}}" alt="Image 3">
+    <div class="card-description">
+      <h2>Thuya</h2>
+      <p>Le thuya appartient à la famille des Cupressacées.
+		D'origine américaine ou asiatique selon les espèces, 
+		il est classé parmi les conifères et on le reconnaît aisément à son feuillage persistant vert ou doré,
+		 formé d'écailles imbriquées les unes dans les autres.</p>
+		 <a href="{{ path('app_mesure') }}" class="btn">Faire un devis en ligne</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="{{asset('img/troene.jpg')}}" alt="Image 4">
+    <div class="card-description">
+      <h2>Troène</h2>
+      <p>est un genre de plantes dicotylédones de la famille des Oleaceae, 
+	  originaire d'Eurasie et d'Afrique du Nord, qui comprend une cinquantaine d'espèces. 
+	  Ce sont des arbustes ou de petits arbres au feuillage caduc, semi-persistant ou persistant.</p>
+	  <a href="{{ path('app_mesure') }}" class="btn">Faire un devis en ligne</a>
+	</div>
+  </div>
+</div>
+</div>
+
+			<div class="card-wrapper">
+			<div class="card">
+			
+				{% if app.user %}
+					<div class="mb-3">
+						<h1>Bonjour
+							{{ app.user.prenom }}
+							!<h1>
+							{% endif %}
+							<h2>
+								Bienvenue sur le site "Le petit jardinier"</h2>
+							<p>Vous trouverez ici toutes les informations sur nos services et nos tarifs.</p>							
+								<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+								<lord-icon src="https://cdn.lordicon.com/rfbqeber.json" trigger="hover" style="width:250px;height:250px"></lord-icon>
+								<p>Voulez-vous générer un devis ?
+								</p>
+								<li>
+									<a href="{{ path('app_mesure') }}" class="btn">Faire un devis en ligne</a>
+								</li>
+						</div>
+					</div>  #}
+				{% endblock %}
+			{% endblock %}

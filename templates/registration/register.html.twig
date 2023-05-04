@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<div class="card-wrapper">
+  <div class="card">
+    <h1>Inscription</h1>
+    
+    {{ form_start(registrationForm) }}
+
+    <br>
+
+     {{ form_row(registrationForm.nom, {
+            label: 'Nom'
+        }) }}
+
+    <br>
+
+        {{ form_row(registrationForm.prenom, {
+            label: 'Prénom'
+        }) }}
+
+    <br>
+
+        {{ form_row(registrationForm.adresse, {
+            label: 'Adresse'
+        }) }}
+
+    <br>
+
+           {{ form_row(registrationForm.ville, {
+            label: 'Ville'
+        }) }}
+
+    <br>
+
+        {{ form_row(registrationForm.cp, {
+            label: 'Code Postal'
+        }) }}
+
+    <br>
+
+    {{ form_row(registrationForm.email, {
+            label: 'Email'
+        }) }}
+
+    <br> 
+
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+    
+    <br>
+
+    {{ form_row(registrationForm.type_client, {
+            label: 'Type de client'
+        }) }}
+
+
+
+        <button type="submit" class="btn">Enregister</button>
+
+    {{ form_end(registrationForm) }}
+
+</div>
+</div>
+{% endblock %}

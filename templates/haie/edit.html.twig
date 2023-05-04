@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block tilte %}Edit Haie{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{asset("css/style.css")}}">
+<div class="card-wrapper">
+<div class="cardo">
+  <h1>Edit Haie</h1>
+
+
+  {{ include('haie/_form.html.twig', {'button_label': ''}) }}
+<br>
+  {{ include('haie/_delete_form.html.twig') }}
+<br>
+
+    <a href="{{ path('app_haie_index') }}">back to list</a>
+      </div>
+</div>
+{% endblock %}

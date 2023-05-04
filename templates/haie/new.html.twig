@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block tilte %}New Haie{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{asset("css/style.css")}}">
+<div class="card-wrapper">
+<div class="cardo">
+<h1>Ajouter une nouvelle Haie</h1>
+<br>
+
+{{ include('haie/_form.html.twig') }}
+<br>
+
+<a href="{{ path('app_haie_index') }}">Retour</a>
+
+</div>
+</div>
+{% endblock %}

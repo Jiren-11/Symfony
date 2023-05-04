@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MesureController!{% endblock %}
+
+{% block body %}
+<style>
+    <link rel="stylesheet" href="{{asset("css/style.css")}}">
+    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+</style>
+ {% block content %}
+       
+<div class="card-wrapper">
+  <div class="card">
+
+  <form action="{{ path('app_devis') }}" method="post">
+
+    <h1>Faire mon devis sur-mesure 
+          <script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+          <lord-icon
+          src="https://cdn.lordicon.com/bxxnzvfm.json"
+          trigger="hover"
+          style="width:70px;height:70px">
+          </lord-icon>
+</h1>
+<h2>Avez-vous fait votre choix ?</h2>
+
+    
+    <br>
+    
+      <label for="haie-select">Choisir un type de haie:</label>
+
+
+    <select name="haie" class="haie-select">
+          {% for item in haie %}
+          <option value="{{item.getCode()}}">{{item.getNom()}}</option>
+         {% endfor %} 
+    </select>
+    
+    <br>
+
+    <form action="{{ path('app_mesure') }}" method="post">
+    <br>
+    <br>
+    <h2>Choisissez la taille de votre haie</h2>
+    <p>Comment desirez vous tailler votre haie ?</p>
+
+    <label for="name">Longueur</label>
+    <input type="text" id="longueur" name="longueur" required>
+       
+
+    <br>
+       <label for="name">Hauteur</label>
+       <input type="text" id="hauteur" name="hauteur" required>
+      
+
+    <br>
+
+    <button type="submit" href= "{{ 'devis' }} ">Suite</button>
+     <br>
+     <br>
+     </form>
+
+    <a href="{{ path('app_choix') }}">Retour</a>
+
+</div>
+</div>
+
+{% endblock %}
+{% endblock %}
