@@ -35,32 +35,24 @@
 				</a>
 			</div>
 			<ul>
-				<li style ="    position: fixed;
-    							top: 0;
-    							left: 150px;">
+				<li style =>
 					<a href="{{ path('app_accueil') }}"class="o">Accueil</a>
 				</li>
 
 				{% if is_granted('ROLE_ADMIN') %}
-					<li style = "position: fixed;
-    							top: 0;
-    							left: 300px;">
+					<li style =>
 						<a href="{{ path('app_devis_crud_index') }}"class="o">Gestion Devis</a>
 						
 						{% endif %}
 				</li>
 				{% if is_granted('ROLE_ADMIN') %}
-					<li style ="position: fixed;
-    							top: 0;
-    							left: 485px;">
+					<li style =>
 						<a href="{{ path('app_haie_index') }}"class="o">Gestion des Haie</a>
 						<ul>
 							<li><a href="{{path('app_haie_new')}}"class="o">Création Haie</a></li>
 						</ul>
 					</li>
-					<li style ="position: fixed;
-    							top: 0;
-    							left: 700px;">
+					<li style =>
 						<a href="{{ path('app_user_crud_index') }}"class="o">Gestion des clients</a>
 					</li>
 				{% endif %}
