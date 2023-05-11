@@ -43,7 +43,7 @@ class HaieController extends AbstractController
             'form' => $form,
         ]);
     }
-    #[IsGranted('ROLE_ADMIN', 'ROLE_USER')]
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/{code}', name: 'app_haie_show', methods: ['GET'])]
     public function show(Haie $haie): Response
     {
