@@ -13,16 +13,32 @@ class DevisType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('date', DateType::class, [
-                'widget' => 'single_text',
-                'label' => 'Date du devis',
-                'attr' => ['class' => 'form-control'],
+
+            ->add('user',
+            null,
+            [
+                'placeholder' => 'Sélectionnez un client',
+                'attr' => ['class' => 'haie-select'],
+                'label' => 'Client',
             ])
             
+            ->add('haie', 
+            null,
+            [
+                'placeholder' => 'Sélectionnez une haie',
+                'attr' => ['class' => 'haie-select'],
+                'label' => 'Haie',
+            ])
+
+            ->add('date', DateType::class, [
+                'widget' => 'single_text',
+                'label' => 'Date de création',
+                'attr' => ['class' => 'js-datepicker'],
+            ])
+
             ->add('hauteur')
             ->add('longueur')
-            ->add('user')
-            ->add('haie')
+
         ;
     }
 

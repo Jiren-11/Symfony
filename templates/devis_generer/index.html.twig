@@ -18,7 +18,7 @@
         <a href="{{ path('app_accueil') }}" class="btn">Retour à l'accueil</a>
         	{% if is_granted('ROLE_USER') %}
 				<h4>Voir mon devis :</h4>
-				<a href="{{ path('app_voir_mon_devis') }}">Voir</a>
+				<a href="{{ path('app_voir_mon_devis') }}" class="btn">Voir</a>
 
 			{% endif %}
 

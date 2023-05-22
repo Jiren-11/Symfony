@@ -57,7 +57,7 @@
     justify-content: space-between;
 }
 
-h2,
+.topcard h2,
 p{
 color: #fff;
 font-family: sans-serif;
@@ -139,7 +139,7 @@ font-family: sans-serif;
     transform: translateY(-10px);
 }
 
-h4 {
+.topcard h4 {
     color: #ffffff;
 
 }

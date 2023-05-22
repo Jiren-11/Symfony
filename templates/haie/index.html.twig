@@ -19,7 +19,7 @@
 						{% if is_granted('ROLE_ADMIN') %}
 							<th>actions</th>
 						{% endif %}
-						{% if is_granted('ROLE_USER') %}
+						{% if is_granted('ROLE_ADMIN') %}
 							<th>Voir</th>
 						{% endif %}
 					</tr>
@@ -32,7 +32,7 @@
 							<td>{{ haie.prix }}</td>
 
 							
-						{% if is_granted('ROLE_USER') %}	
+						{% if is_granted('ROLE_ADMIN') %}	
 							<td>
 								<a href="{{ path('app_haie_show', {'code': haie.code}) }}">
 									<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
@@ -60,7 +60,9 @@
 			</table>
 			<br>
 			<br>
+			{% if is_granted('ROLE_ADMIN') %}
 			<a href="{{ path('app_haie_new') }}" class="btn">Create new</a>
+			{% endif %}
 
 			<h2>
 				Retour à l'Accueil :<a href="{{ path('app_accueil') }}">

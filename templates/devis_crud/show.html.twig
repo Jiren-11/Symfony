@@ -30,11 +30,26 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_devis_crud_index') }}">back to list</a>
 
-    <a href="{{ path('app_devis_crud_edit', {'id': devi.id}) }}">edit</a>
+
+    
 
     {{ include('devis_crud/_delete_form.html.twig') }}
+
+    <div class="rien" style = "padding:10px"></div>
+
+    <a href="{{ path('app_devis_crud_edit', {'id': devi.id}) }}" class="btn" >									
+                    Modifier
+    </a>
+
+    <div class="rien" style = "padding:5px"></div>
+
+        <a href="{{ path('app_devis_crud_index') }}">
+        <div class="icon">
+			<script src="https://cdn.lordicon.com/ritcuqlt.js"></script>
+			<lord-icon src="https://cdn.lordicon.com/qhaguvvs.json" trigger="hover" style="width:50px;height:50px"></lord-icon>
+	    </div>
+    </a>
     		</div>
 	</div>
 {% endblock %}

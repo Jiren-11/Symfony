@@ -39,6 +39,12 @@
 					<a href="{{ path('app_accueil') }}"class="o">Accueil</a>
 				</li>
 
+				{% if is_granted('ROLE_USER') %}
+				<li style =>
+					<a href="{{ path('app_voir_mon_devis') }}"class="o">Mes Devis</a>
+				</li>
+				{% endif %}
+
 				{% if is_granted('ROLE_ADMIN') %}
 					<li style =>
 						<a href="{{ path('app_devis_crud_index') }}"class="o">Gestion Devis</a>
